@@ -18,7 +18,7 @@ public class Taxes {
 		}else {
 			IPI = (product.getProductValue()+shippingCost+insuranceCost)*0.15;
 			System.out.println("---------------------------------");
-			System.out.printf("O valor do IPI é: %.2f%n", IPI);
+			System.out.printf("The IPI value is: %.2f%n", IPI);
 		}
 	}
 	public Double getICMS() {
