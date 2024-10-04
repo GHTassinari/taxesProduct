@@ -7,8 +7,6 @@ public class Main {
 		Double answerShippingCost = null;
 		Double answerInsurance = null;
 		
-		
-		
 		try (Scanner scanner = new Scanner(System.in)) {
 			System.out.println("Inform the product name: ");
 			String productName = scanner.nextLine();
@@ -22,14 +20,14 @@ public class Main {
 			Boolean answerTaxExemption = taxes.federalTaxExempt(scanner);
 			
 			if(answerTaxExemption == true) {
-				answerShippingCost = 0.0;
-				answerInsurance = 0.0;
+				answerShippingCost = product.shippingCost(scanner);		
+				answerInsurance = product.productInsurance(scanner);
+				taxes.setIPI(product, answerTaxExemption, answerShippingCost, answerInsurance);
 			}else if(answerTaxExemption == false){
 				answerShippingCost = product.shippingCost(scanner);		
 				answerInsurance = product.productInsurance(scanner);
+				taxes.setIPI(product, answerTaxExemption, answerShippingCost, answerInsurance);
 			}
-			
-			taxes.setIPI(product, answerTaxExemption, answerShippingCost, answerInsurance);
 			
 			taxes.setICMS(product, scanner);
 			
